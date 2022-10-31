@@ -1,0 +1,82 @@
+
+Table produse {
+  id int [pk, increment]
+  nume varchar 
+  pret_intreg double
+  pret_redus double 
+  descriere varchar 
+  imagine varchar 
+}
+
+Table depozite {
+  id int [pk, increment]
+  adresa varchar
+}
+
+Table tranzactii_produse {
+  id int [pk, increment]
+  id_produs int [ref: > produse.id]
+  id_depozit_intrare int [ref: > depozite.id]
+  id_depozit_iesire int [ref: > depozite.id]
+  cantitate double 
+}
+
+Table utilizatori {
+  id int [pk, increment]
+  username varchar 
+  parola varchar 
+  nume varchar
+  prenume varchar 
+  email varchar 
+  telefon varchar
+}
+
+Table webmasters {
+  id int [ref: > utilizatori.id]
+}
+
+Table clienti {
+  id int [ref: > utilizatori.id]
+  adresa_facturare varchar 
+  adresa_livrare varchar 
+}
+
+Table persoane_fizice {
+  id int [ref: > clienti.id]
+  cnp varchar 
+  serie_nr_buletin varchar 
+}
+
+Table persoane_juridice {
+  id int [ref: > clienti.id]
+  cod_fiscal varchar 
+  regcom varchar 
+}
+
+Table promotii {
+  cod varchar [pk]
+  discount double
+  data_inceput timestamp
+  data_final timestamp 
+}
+
+Table comenzi {
+  id int [pk, increment]
+  beneficiar int [ref: > clienti.id]
+  adresa_livrare varchar 
+  cod_promotie varchar [ref: > promotii.cod]
+}
+
+Table linie_produs_comanda {
+  id int [pk, increment]
+  id_produs int [ref: > produse.id]
+  id_comanda int [ref: > comenzi.id]
+  id_depozit int [ref: > depozite.id]
+}
+
+Table factura {
+  id int [pk, increment]
+  comanda int [ref: > comenzi.id]
+  suma double
+  adresa_facturare varchar 
+}
