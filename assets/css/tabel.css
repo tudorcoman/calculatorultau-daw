@@ -1,0 +1,51 @@
+@keyframes aparitie_outline {
+    0% {
+        outline: 0px;
+   }
+    100% {
+        outline: 5px solid rgba(145, 103, 245, 0.7);
+   }
+}
+#tabelul {
+    caption-side: bottom;
+    border-spacing: 2px;
+    width: 100%;
+    border: 5px inset #9167f5;
+}
+#tabelul thead tr th {
+    border-top: 1px solid #9167f5;
+    border-bottom: 1px solid #9a8abf;
+}
+#tabelul tbody tr :nth-child(odd) td {
+    border-top: 1px solid #9a8abf;
+    border-bottom: 1px solid #9167f5;
+}
+#tabelul tbody tr :nth-child(even) td {
+    border-top: 1px solid #9167f5;
+    border-bottom: 1px solid #9a8abf;
+}
+#tabelul tbody tr td :hover {
+    animation-name: aparitie_outline;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+#tabelul tfoot tr td {
+    border-top: 1px solid #9a8abf;
+    border-bottom: 1px solid #9167f5;
+}
+table td {
+    border: 1px solid black;
+}
+table th {
+    border: 1px solid black;
+}
+@media screen and (max-width: 700px) {
+    #tabelul {
+        border-spacing: 0px;
+   }
+    #container_tabel {
+        overflow-x: scroll;
+   }
+}

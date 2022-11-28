@@ -1,0 +1,183 @@
+@keyframes growDown {
+    0% {
+        transform: scaleY(0);
+   }
+    100% {
+        transform: scaleY(1);
+   }
+}
+body {
+    --culoare-text: #443073;
+    --culoare-header: #c3aef2;
+    --culoare-border: #9a8abf;
+    --culoare-highlights: #9167f5;
+    color: var(--culoare-text);
+}
+body.dark {
+    --culoare-text: white;
+    background-color: black;
+}
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+main {
+    font-size: calc(0.75em + 1vmin);
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+#sectiune1 {
+    grid-area: sectiune1;
+}
+#sectiune2 {
+    grid-area: sectiune2;
+}
+#sectiune3 {
+    grid-area: sectiune3;
+}
+#sectiune4 {
+    grid-area: sectiune4;
+}
+#sectiune5 {
+    grid-area: sectiune5;
+}
+#sectiune6 {
+    grid-area: sectiune6;
+}
+#sectiune7 {
+    grid-area: sectiune7;
+}
+#sectiune8 {
+    grid-area: sectiune8;
+}
+.wrapper {
+    display: grid;
+    width: 100%;
+    gap: 20px;
+    grid-template-areas: "sectiune1" "sectiune2" "sectiune3" "sectiune4" "sectiune5" "sectiune6" "sectiune7" "sectiune8";
+}
+.taburi-iframe {
+    display: flex;
+    justify-content: center;
+    font-size: 0.75em;
+}
+.taburi-iframe a {
+    text-decoration: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100px;
+    display: inline-block;
+    border: 1px solid var(--culoare-highlights);
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-image: linear-gradient(white, white 50%, var(--culoare-highlights));
+    color: var(--culoare-text);
+    transition: all 0.5s linear;
+    text-align: center;
+}
+.taburi-iframe a:hover {
+    color: white;
+    background-image: none;
+    background-color: var(--culoare-highlights);
+}
+.taburi-iframe a + a {
+    margin-left: -5px;
+}
+#iframe-container {
+    display: inline-block;
+}
+iframe {
+    border: 3px solid var(--culoare-highlights);
+}
+#link-top {
+    position: fixed;
+    display: block;
+    opacity: 0.5;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 0.7rem;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border: 1px solid var(--culoare-mov);
+    box-shadow: 0px 0px 7px 2px inset var(--culoare-highlights);
+    overflow: visible;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    text-decoration: none;
+}
+#link-top:hover {
+    opacity: 1;
+}
+#triunghi {
+    content: "\1F839";
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    border-bottom: 40px solid transparent;
+    border-top: 0px solid transparent;
+    border-left: 20px solid white;
+    border-right: 20px solid white;
+    background-color: var(--culoare-text);
+    background-clip: border-box;
+    padding: 0;
+    width: 0;
+    box-sizing: border-box;
+}
+#triunghi::after {
+    position: absolute;
+    display: block;
+    left: -20px;
+    content: " ";
+    width: 40px;
+    height: 40px;
+    background-position: center 15px;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+#sagetica {
+    font-size: 1.5em;
+    position: relative;
+    margin: auto;
+    border-top: 0.6em solid transparent;
+    background-clip: border-box;
+    padding: 0;
+    width: 50%;
+    box-sizing: border-box;
+}
+#sagetica:hover {
+    border-top: 0.5em solid transparent;
+    transform: scale(1.5);
+}
+#casuta {
+    display: none;
+}
+#htitle {
+    display: none;
+}
+@media (min-width: 600px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "sectiune1 sectiune1" "sectiune2 sectiune3" "sectiune2 sectiune4" "sectiune5 sectiune6" "sectiune7 sectiune8";
+   }
+}
+@media (min-width: 900px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "sectiune1 sectiune1 sectiune1 sectiune1" "sectiune2 sectiune2 sectiune3 sectiune3" "sectiune2 sectiune2 sectiune4 sectiune4" "sectiune5 sectiune6 sectiune6 sectiune7" "sectiune8 sectiune8 sectiune8 sectiune8";
+   }
+}
+@media (max-width: 800px) {
+    #casuta {
+        display: block;
+   }
+    #acasa {
+        display: none;
+   }
+}
