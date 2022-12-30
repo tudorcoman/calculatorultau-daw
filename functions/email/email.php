@@ -2,7 +2,7 @@
     require_once(getenv('APP_ROOT_PATH') . '/functions/phpmailer/class.phpmailer.php');
     require_once(getenv('APP_ROOT_PATH') . '/functions/phpmailer/mail_config.php');
 
-    function send_email($to, $nume, $subject, $message) {
+    function send_email($to, $nume, $subject, $message, $pdf_attachment = null) {
         $mail = new PHPMailer(true); 
         $mail->IsSMTP();
 
@@ -24,8 +24,11 @@
             $mail->Subject = $subject;
             $mail->AltBody = 'To view this post you need a compatible HTML viewer!'; 
             $mail->MsgHTML($message);
+            if (!is_null($pdf_attachment)) {
+                $mail->AddStringAttachment($pdf_attachment, 'factura.pdf');
+            }
             $mail->Send();
-            echo "Message Sent OK</p>\n";
+            //echo "Message Sent OK</p>\n";
             } catch (phpmailerException $e) {
             echo $e->errorMessage(); //error from PHPMailer
             } catch (Exception $e) {

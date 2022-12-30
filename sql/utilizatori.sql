@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS utilizatori (
 CREATE TABLE IF NOT EXISTS accesari (
    id INTEGER AUTO_INCREMENT PRIMARY KEY,
    ip VARCHAR(100) NOT NULL,
-   user_id INT NULL REFERENCES utilizatori(id),
+   user_id INT NOT NULL REFERENCES utilizatori(id),
    pagina VARCHAR(500) NOT NULL,
    data_accesare TIMESTAMP DEFAULT current_timestamp
 );

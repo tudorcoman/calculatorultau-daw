@@ -27,7 +27,6 @@
                 <ul>
                     <li><a href="/#firstsection">Despre noi</a></li>
                     <li><a href="/#secondsection">Resurse</a></li>
-                    <li><a href="/#thirdsection">Sectiuna trei</a></li>
                 </ul>
             </li>
             <li><div><a href="/despre">Despre</a></div>
@@ -58,13 +57,17 @@
             <!-- <li><a href="/useri">Useri</a></li> -->
             <!-- <% } %> -->
             <li><a id="btn_tema">Tema: <i class="fa-solid fa-sun"></i></a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/cos-virtual">Cos</a></li>
             <?php if(isset($_SESSION["user_id"])) : 
                     require_once getenv('APP_ROOT_PATH') . '/functions/database/db_functions.php';
                     $user = getUserInfo($_SESSION["user_id"]);    
             ?>
                 <li><div id="username-button"> <img src="/profilepicture" width="32" height="32" onerror="this.style.display = 'none';"> <?php echo $user["username"]; ?></div>
                     <ul>
+                        <?php if($user["rol"] == "admin") : ?>
+                            <li><a href="/dashboard">Dashboard</a></li>
+                        <?php endif; ?>
                         <li><a href="/profil">Profil</a></li>
                         <li><a href="/logout">Logout</a></li>
                         <li><a href="/stergere">Stergere cont</a></li>
@@ -80,7 +83,6 @@
                 </script>
             <?php else : ?>
             <li><a href="/inregistrare">Inregistrare</a></li>
-            <li><a href="/cos-virtual">Cos</a></li>
             <li>
                 <a href="#">Conectare</a>
                 <ul>

@@ -1,0 +1,134 @@
+.continut {
+  font-family: helvetica; 
+  color: #443073;
+}
+
+.header {
+  padding: 40px;
+  text-align: center;
+  /* background: #0e83de; */
+}
+
+h1 {
+    /* font-family: 'M Hei PRC'; */
+    font-family: mhei; 
+    font-size: 77px;
+    margin: 0;
+}
+
+p { margin:0 }
+
+.continut {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.adresa {
+    width: 200px;
+    float: left;
+    height: 50px;
+}
+
+.contact {
+    width: 200px;
+    float: left;
+    height: 50px;
+}
+
+.under-title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.billing {
+  margin-top: 30px;
+  width: 300px;
+  /* float: left; */
+  height: 50px;
+  margin-bottom: 40px;
+}
+
+.gray-title {
+  color: #999999;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.billing-empty {
+  width: 150px;
+  height: 150px;
+  float: left;
+}
+
+.invoice-total .gray-title{
+  margin-bottom: 30px;
+}
+
+.tabel {
+  width: 100%;
+  border-collapse: collapse; 
+}
+table.menu {
+  width: auto;
+}
+
+th {
+  height: 0.9cm;
+  background: #c3aef2;
+  color: white;
+  text-align: left;
+  /* font-weight: normal;  */
+  padding: 5px;
+  font-size: 12px;
+}
+
+#tabel-produse {
+  font-family: helvetica; 
+}
+
+.comp-name {
+  font-family: helvetica;
+  font-size: 18px;
+  color: #404040;
+}
+
+#tabel-produse td {
+  height: 0.9cm; 
+  padding: 5px;
+  background: #f3f3f3;
+}
+
+.underbilling {
+  margin-top: 30px;
+}
+
+#totals-table {
+  font-family: helvetica;
+}
+
+#totals-table .desc {
+  color: #999999;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: right;
+}
+
+#totals-table td {
+  padding: 6px;
+}
+
+.totals {
+  padding: 15px;
+}
+
+.invoice-total {
+  text-align: center;
+}
+
+.footer {
+  padding: 30px;
+  text-align: center;
+  background: #c3aef2;
+}

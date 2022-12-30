@@ -1,3 +1,5 @@
 misc/
+*.zip
+vendor/
 .DS_Store
 

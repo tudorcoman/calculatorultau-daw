@@ -1,5 +1,7 @@
 <?php 
-session_start();
+if(!isset($_SESSION)) { 
+    session_start(); 
+} 
 require_once getenv('APP_ROOT_PATH') . '/functions/database/sql_repository.php';
 
 if (isset($_SESSION["user_id"])) {

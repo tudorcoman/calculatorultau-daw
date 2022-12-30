@@ -4,7 +4,11 @@ window.addEventListener('load', function() {
 		url: '/produse/get.php',
 		data: {},
 		success: function(produse_db) {
+			let main = document.getElementById("continut-pagina");
+
 			var produse_ls = localStorage.getItem('cos_virtual');
+			document.getElementById("cos").value = produse_ls;
+
 			if (produse_ls) {
 			    produse_ls = produse_ls.split(',');
     			var produseId = [];
@@ -16,42 +20,58 @@ window.addEventListener('load', function() {
     			}
     
     			produse = produse_db.filter(produs => produseId.includes(produs.id));
-    			if (produse.length > 0) {
-    				let main = document.getElementsByTagName("main")[0];
-    				let btn = document.getElementById("cumpara");
-    		
-    				for (let prod of produse){
-    					let article = document.createElement("article");
-    					article.classList.add("cos-virtual");
-    					var h2 = document.createElement("h2");
-    					h2.innerHTML = prod.nume;
-    					article.appendChild(h2);
-    					let imagine = document.createElement("img");
-    					imagine.src = prod.imagine;
-    					article.appendChild(imagine);
-    		
-    					let descriere = document.createElement("p");
-    					descriere.innerHTML = prod.descriere + " <b>Pret: </b>" + prod.pret;
-    					article.appendChild(descriere);
-    					main.insertBefore(article, btn);
-    					
-    					/* TO DO 
-    					pentru fiecare produs, creăm un articol in care afisam imaginea si cateva date precum:
-    					- nume, pret, imagine, si alte caracteristici
-    		
-    					
-    					document.getElementsByTagName("main")[0].insertBefore(divCos, document.getElementById("cumpara"));
-    					*/
 
-						// aici trebuie facut un tabel
-						// si la final un formular de order
-						// daca nu e logat, trimite-l catre creare cont 
-						// daca e logat, ia adresa si trimite comanda
+    			if (produse.length > 0) {
+    				
+					let sectiune = document.getElementById("sectiune-cos");
+					let tabel = document.createElement("table");
+					tabel.innerHTML = "<tr><th>Nume produs</th><th>Imagine</th><th>Cantitate</th><th>Pret unitar</th><th>Pret total</th></tr>";
+					
+					var totalCos = 0; 
+    				for (let prod of produse){
+						let rand = document.createElement("tr");
+    					
+						let nume = document.createElement("td");
+						nume.innerHTML = prod.nume;
+
+						let imagine = document.createElement("td");
+						let img = document.createElement("img");
+						img.src = prod.imagine;
+						img.style.width = "100px";
+						imagine.appendChild(img);
+
+						let cantitate = document.createElement("td");
+						cantitate.innerHTML = produseQ.get(prod.id).toString();
+
+						let pretUnitar = document.createElement("td");
+						pretUnitar.innerHTML = prod.pret.toString();
+
+						let pretTotal = produseQ.get(prod.id) * prod.pret;
+						let total = document.createElement("td");
+						totalCos += pretTotal;
+						total.innerHTML = pretTotal.toString();
+						
+						rand.appendChild(nume);
+						rand.appendChild(imagine);
+						rand.appendChild(cantitate);
+						rand.appendChild(pretUnitar);
+						rand.appendChild(total);
+
+;						tabel.appendChild(rand);		
     				}
+
+					sectiune.appendChild(tabel);
+					let total = document.createElement("p");
+					total.innerHTML = "Total: " + totalCos.toString();
+					sectiune.appendChild(total);
     			}
 			} else {
-				document.getElementsByTagName("main")[0].innerHTML="<p>Nu aveti nimic in cos!</p>";
+				main.innerHTML="<p>Nu aveti nimic in cos!</p>";
 			}
 		}
 	}))
 });
+
+function curataCos() {
+	localStorage.setItem("cos_virtual", "");
+}

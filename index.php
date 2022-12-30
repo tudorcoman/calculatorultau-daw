@@ -18,26 +18,13 @@ ini_set('display_errors', '1');
 <body>
 <?php include(getenv('APP_ROOT_PATH') . "/templates/header.php"); ?>
 <p id="watermark"></p>
-<main class="wrapper">
+<main>
     <div id="sectiune1">
         <section id="firstsection">
             <h2>Despre noi</h2>
             <p>
                 Pe calculatorultau.ro gasesti orice componente de PC, precum <b>procesoare</b>, <b>placi video</b>, <b>placi de baza</b> si <b>hard diskuri</b>, dar si <b>periferice</b> si <b>accesorii</b> de PC. Daca nu esti sigur de ce anume ai nevoie, trimite-ne un mail sau suna-ne la numarul de telefon de mai jos, pentru a beneficia de o consultanta gratuita. Suntem prezenti pe piata pieselor de calculatoare de 10 ani, asa ca stim ce sa recomandam pentru nevoile oricarui client. 
             </p>
-
-            <!-- <p>
-                <button id="btn_tema">Schimba tema</button>
-            </p> -->
-
-            <video width="640" height="480" controls="controls" poster="/assets/img/motherboard.jpg">
-                <source src="/assets/video/video.mov" type="video/mov">
-                <source src="/assets/video/video.mp4" type="video/mp4">
-                <source src="/assets/video/video.ogv" type="video/ogv">
-                <track default src="/assets/tracks/caption_ro.vtt" kind="captions" srclang="ro" label="romana" />
-                <track  src="/assets/tracks/caption_en.vtt" kind="captions" srclang="en" label="engleza" />
-            </video>
-            
         </section>
 
         <section id="faq">
@@ -125,40 +112,6 @@ ini_set('display_errors', '1');
                 </tfoot>
               </table>
         </div>
-    </div>
-    <div id="sectiune3">
-        <h4>Calendar de evenimente</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tortor risus. Mauris hendrerit tellus at dolor tincidunt, non feugiat felis mollis. Curabitur lacus sem, iaculis eu consequat eu, hendrerit ut lectus. Maecenas dictum tempus diam, ornare bibendum massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam vel elit ac magna consectetur pellentesque. Pellentesque tempus arcu elit, at convallis elit eleifend sed. Pellentesque aliquet lacus orci, in sagittis est convallis et. Ut pharetra, metus vitae blandit malesuada, turpis ex vulputate odio, ac convallis libero erat sed nunc. Praesent ut magna est. Mauris sit amet iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus ullamcorper nisi id urna ultricies suscipit. Sed dignissim, mauris sit amet viverra imperdiet, velit leo viverra arcu, ut vehicula sapien metus sed nibh.</p>
-    </div>
-    <div id="sectiune4">
-        <h4>Anunturi</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tortor risus. Mauris hendrerit tellus at dolor tincidunt, non feugiat felis mollis. Curabitur lacus sem, iaculis eu consequat eu, hendrerit ut lectus. Maecenas dictum tempus diam, ornare bibendum massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam vel elit ac magna consectetur pellentesque. Pellentesque tempus arcu elit, at convallis elit eleifend sed. Pellentesque aliquet lacus orci, in sagittis est convallis et. Ut pharetra, metus vitae blandit malesuada, turpis ex vulputate odio, ac convallis libero erat sed nunc. Praesent ut magna est. Mauris sit amet iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus ullamcorper nisi id urna ultricies suscipit. Sed dignissim, mauris sit amet viverra imperdiet, velit leo viverra arcu, ut vehicula sapien metus sed nibh.</p>    </div>
-
-    <div id="sectiune5">
-        <h4>Utilizatori online</h4>
-        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tortor risus. Mauris hendrerit tellus at dolor tincidunt, non feugiat felis mollis. Curabitur lacus sem, iaculis eu consequat eu, hendrerit ut lectus. Maecenas dictum tempus diam, ornare bibendum massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam vel elit ac magna consectetur pellentesque. Pellentesque tempus arcu elit, at convallis elit eleifend sed. Pellentesque aliquet lacus orci, in sagittis est convallis et. Ut pharetra, metus vitae blandit malesuada, turpis ex vulputate odio, ac convallis libero erat sed nunc. Praesent ut magna est. Mauris sit amet iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus ullamcorper nisi id urna ultricies suscipit. Sed dignissim, mauris sit amet viverra imperdiet, velit leo viverra arcu, ut vehicula sapien metus sed nibh.</p> -->
-        <ul id="utilizatori_online"></ul>
-        <!-- <script>
-            var listaNeordonata = document.getElementById("utilizatori_online");
-            fetch("/admini_online")
-                .then(response => response.json())
-                .then(data => {
-                    for (let user of data) {
-                        var li = document.createElement("li");
-                        li.innerHTML = `${user.username} (<a href="mailto:${user.email}">${user.email}</a>)`;
-                        listaNeordonata.appendChild(li);
-                    }
-                });
-        </script> -->
-    </div>
-    <div id="sectiune6">
-        <h4>Date despre utilizatori si statistici</h4>
-        <p>IP: </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tortor risus. Mauris hendrerit tellus at dolor tincidunt, non feugiat felis mollis. Curabitur lacus sem, iaculis eu consequat eu, hendrerit ut lectus. Maecenas dictum tempus diam, ornare bibendum massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam vel elit ac magna consectetur pellentesque. Pellentesque tempus arcu elit, at convallis elit eleifend sed. Pellentesque aliquet lacus orci, in sagittis est convallis et. Ut pharetra, metus vitae blandit malesuada, turpis ex vulputate odio, ac convallis libero erat sed nunc. Praesent ut magna est. Mauris sit amet iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus ullamcorper nisi id urna ultricies suscipit. Sed dignissim, mauris sit amet viverra imperdiet, velit leo viverra arcu, ut vehicula sapien metus sed nibh.</p>
-    </div>
-    <div id="sectiune7">
-        <h4>Date despre site si server</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tortor risus. Mauris hendrerit tellus at dolor tincidunt, non feugiat felis mollis. Curabitur lacus sem, iaculis eu consequat eu, hendrerit ut lectus. Maecenas dictum tempus diam, ornare bibendum massa. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam vel elit ac magna consectetur pellentesque. Pellentesque tempus arcu elit, at convallis elit eleifend sed. Pellentesque aliquet lacus orci, in sagittis est convallis et. Ut pharetra, metus vitae blandit malesuada, turpis ex vulputate odio, ac convallis libero erat sed nunc. Praesent ut magna est. Mauris sit amet iaculis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus ullamcorper nisi id urna ultricies suscipit. Sed dignissim, mauris sit amet viverra imperdiet, velit leo viverra arcu, ut vehicula sapien metus sed nibh.</p>
     </div>
 
     <div id="sectiune8">

@@ -142,7 +142,7 @@
                                         <li><a class="nume-caracteristica">An fabricatie: </a> <span class="val-an-fabricatie"><?php echo $produs["an_fabricatie"]; ?></span></li>
                                         <li><a class="nume-caracteristica">Greutate: </a> <span class="val-greutate"><?php echo $produs["greutate"]; ?></span></li>
                                         <li><a class="nume-caracteristica">Culoare: </a> <span class="val-culoare"><?php echo $produs["culoare"]; ?></span></li>
-                                        <li><a class="nume-caracteristica">Materiale: </a> <span class="val-materiale"><?php echo $produs["materiale"]; ?></span></li>
+                                        <li><a class="nume-caracteristica">Materiale: </a> <span class="val-materiale"><?php echo str_replace(array('[', '"', ']'), array("", "", ""), $produs["materiale"]); ?></span></li>
                                         <li><a class="nume-caracteristica">Resigilat: </a> <span class="val-resigilat"><?php echo $produs["resigilat"]; ?></span></li>
                                         <li><a class="nume-caracteristica">Data adaugare: </a> 
                                             <span class="val-data-adaugare">

@@ -24,30 +24,6 @@
         <div id="prezentare">
             <p>CalculatorulTau este locul cel mai bun pentru cumparaturile tale de calculator, deoarece avem produse de calitate la preturi competitive. Pe acest site, veti gasi orice componente de calculator, de la A la Z: procesoare (CPU), placi video (GPU), hard disk-uri si solid state drive-uri (HDD/SSD), memorii (RAM), placi de baza, carcase, unitati optice, surse si accesorii de conectica. </p>
         </div>
-        <h2><strong>Gama noastra de produse</strong></h2>
-        <div id="galerie-statica">
-            <?php 
-                $imagini = json_decode(file_get_contents('../assets/json/galerie.json'), true); 
-                foreach($imagini['imagini'] as $img) {
-                    $tok = explode(".", $img['fisier']);
-                    $nume_imag = $tok[0]; 
-                    $extensie = $tok[1];
-                    $dim_mic = 150;
-                    $dim_mediu = 300;
-
-                    $mic = $imagini['cale_galerie'] . "/mic/{$nume_imag}-{$dim_mic}.webp";
-                    $mediu = $imagini['cale_galerie'] . "/mediu/{$nume_imag}-{$dim_mediu}.webp";
-                    $mare = $imagini['cale_galerie'] . "/" . $imagini['fisier']; ?>
-                    <figure>
-                        <picture>
-                            <source srcset="<?php echo $mic; ?>" media="(max-width:800px)" />
-                            <source srcset="<?php echo $mediu; ?>" media="(max-width:1200px)" />
-                            <img src="<?php echo $mare; ?>" title="<?php echo $img['titlu']; ?>" />
-                        </picture>
-                        <figcaption><?php echo $img['descriere']; ?> </figcaption>
-                    </figure>
-            <?php } ?>
-        </div>  
     </div>
     <div id="sectiune2">
         <img class="responsive" width="800" src="/assets/img/motherboard.jpg" alt="motherboard">
