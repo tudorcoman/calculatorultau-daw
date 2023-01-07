@@ -18,13 +18,13 @@
 
             <form action="" method="post">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name">
+                <input type="text" id="name" name="name" placeholder="Your name" required pattern="[A-Za-z ]+">
 
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Your email">
+                <input type="text" id="email" name="email" placeholder="Your email" required>
 
                 <label for="message">Message</label>
-                <textarea id="message" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                <textarea id="message" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
 
                 <div class="g-recaptcha" data-sitekey="6Le5rLUjAAAAAMPxAFTCBK4n7n4TArMi8aIKyNiV"></div> <br>
                 <input type="submit" name="submit" value="Submit">
@@ -60,14 +60,17 @@
                             // Decode JSON data of API response 
                             $responseData = json_decode($verifyResponse); 
                             
+                            // Retrieve value from the form input fields 
+                            $name = !empty($_POST['name'])?$_POST['name']:''; 
+                            $email = !empty($_POST['email'])?$_POST['email']:''; 
+                            $message = !empty($_POST['message'])?$_POST['message']:''; 
+                            
+                            $name_chk = preg_match("/^[a-zA-Z ]+$/", $name);
+                            $email_chk = filter_var($email, FILTER_VALIDATE_EMAIL);
+                            
                             // If the reCAPTCHA API response is valid 
-                            if($responseData->success){ 
-                                // Retrieve value from the form input fields 
-                                $name = !empty($_POST['name'])?$_POST['name']:''; 
-                                $email = !empty($_POST['email'])?$_POST['email']:''; 
-                                $message = !empty($_POST['message'])?$_POST['message']:''; 
-                                
-                                $message = 'Expeditor: ' . $name . '<br> Adresa de mail: ' . $email . '<br> Mesaj: ' . $message;
+                            if($responseData->success && $name_chk && $email_chk){ 
+                                $message = 'Expeditor: ' . htmlspecialchars($name) . '<br> Adresa de mail: ' . htmlspecialchars($email) . '<br> Mesaj: ' . htmlspecialchars($message);
 
                                 send_email($recipientEmail, "Suport", "Contact form submission", $message);
 

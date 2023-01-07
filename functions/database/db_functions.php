@@ -83,11 +83,11 @@ function createClient($user_id, $delivery_address, $invoice_address) {
 }
 
 function getAccesariReport() {
-    return resultFromArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/accesari/ip.sql'));
+    return resultToArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/accesari/ip.sql'));
 }
 
 function getGestiuneReport() {
-    return resultFromArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/gestiune/get_all.sql'));
+    return resultToArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/gestiune/get_all.sql'));
 }
 
 function getOnlineUsersReport() {
@@ -96,11 +96,11 @@ function getOnlineUsersReport() {
 
 function getComenziReport($period) {
     if (strcmp($period, "week") == 0) {
-        return resultFromArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/comenzi/week.sql'));
+        return resultToArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/comenzi/week.sql'));
     } else if (strcmp($period, "month") == 0) {
-        return resultFromArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/comenzi/month.sql'));
+        return resultToArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/comenzi/month.sql'));
     } else if (strcmp($period, "day") == 0) {
-        return resultFromArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/comenzi/day.sql'));
+        return resultToArray(executeQueryFromFile(getenv('APP_ROOT_PATH') . '/sql/comenzi/day.sql'));
     } else {
         die('Bad parameters');
     }
@@ -166,7 +166,7 @@ function sendOrder($user_id, $delivery_address, $invoice_address, $cart, $promot
     $pdf = generate_invoice($order_id, $nume_complet, $invoice_address, $prod_names, $prod_qs, $prod_unit_prices, $date_str);
 
     // trimitere email cu factura
-    send_email($user["email"], $nume_complet, "Comanda $order_id", "<p> Comanda ta a fost inregistrata cu succes. Am atasat si factura. </p> <p> Livrarea se va face la $delivery_address in urmatoarele 3-5 zile lucratoare. </p>.", $pdf);
+    send_email($user["email"], $nume_complet, "Comanda $order_id", "<p> Comanda ta a fost inregistrata cu succes. Am atasat si factura. </p> <p> Livrarea se va face la $delivery_address in urmatoarele 3-5 zile lucratoare. </p>", $pdf);
 }
 
 ?>

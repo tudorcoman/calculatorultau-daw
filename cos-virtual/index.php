@@ -47,8 +47,8 @@
                 <section>
                     <h2>Detalii despre comanda </h2>
                     <form action="/produse/order.php" onsubmit="curataCos()" id="sendOrderForm" method="post">
-                        <label> Adresa de livrare: <input type="text" id="livrare" name="livrare"></label> <br>
-                        <label> Adresa de facturare: <input type="text" id="facturare" name="facturare"></label> <br>
+                        <label> Adresa de livrare: <input type="text" id="livrare" name="livrare" required pattern="[A-Za-z0-9 ,.]+$"></label> <br>
+                        <label> Adresa de facturare: <input type="text" id="facturare" name="facturare" required pattern="[A-Za-z0-9 ,.]+$"></label> <br>
                         <input type="hidden" id="cos" name="cos">
                         <input type="submit" class="buton-verde" name="submit" value="Trimite comanda">
                     </form>

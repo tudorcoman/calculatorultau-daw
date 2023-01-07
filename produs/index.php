@@ -1,10 +1,10 @@
 <?php 
-    if(!isset($_GET["id"])) {
+    if(!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
         header("Location: /produse");
         die();
     }
 
-    $id_produs = $_GET["id"];
+    $id_produs = (int) $_GET["id"];
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +22,10 @@
             $stmt->bind_param("i", $id_produs);
             $stmt->execute();
             $result = $stmt->get_result();
+            if($result->num_rows != 1) {
+                header("Location: /produse");
+                die();
+            }
             $produs = $result->fetch_assoc();
         ?>
         <link href="/assets/css/produs.css" type="text/css" rel="stylesheet" />

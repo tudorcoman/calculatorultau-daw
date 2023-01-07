@@ -8,7 +8,6 @@
         <meta name="author" content="Tudor Coman">
         <link rel="stylesheet" href="/assets/css/produse.css" type="text/css" />
         <?php include(getenv('APP_ROOT_PATH') . "/templates/head.php");
-            // require_once getenv('APP_ROOT_PATH') . '/functions/database/sql_repository.php';
 
             $mysqli = SQLRepository::getInstance()->getConnection();
             
@@ -61,7 +60,7 @@
             ?>
         </datalist>
 
-        <div> Greutate:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+        <div> Greutate:
             <p><label>Foarte usor (greutate &lt; 150)
                 <input id="i_rad1"  name="gr_rad" value="0:150" type="radio"/>
             </label></p>
@@ -117,7 +116,6 @@
 
         </p>
         
-        <!-- <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p> -->
         <section id="produse">
             <h2>Produse</h2>
             <div class="grid-produse">
@@ -130,12 +128,6 @@
                                     <figure>
                                         <a href="/produs?id=<?php echo $produs["id"]; ?>" ><img src="<?php echo $produs["imagine"]; ?>" style="width:50%;height:auto;" alt="[imagine <?php echo $produs["nume"]; ?>]" /></a>
                                     </figure>
-                                
-                                    <!-- <div class="info-prod">
-                                        <p class="pret">Pret: <span class="val-pret"><%- prod.pret%> RON</span></p>
-                                        <p class="calorii">An fabricatie: <span class="val-an-fabricatie"><%- prod.an_fabricatie%></span></p>
-                                        <p class="gramaj">Greutate: <span class="val-greutate"><%- prod.greutate%> g</span></p>
-                                    </div> -->
 
                                     <ul>
                                         <li><a class="nume-caracteristica">Pret: </a> <span class="val-pret"><?php echo $produs["pret"]; ?></span> RON</li>
@@ -143,7 +135,7 @@
                                         <li><a class="nume-caracteristica">Greutate: </a> <span class="val-greutate"><?php echo $produs["greutate"]; ?></span></li>
                                         <li><a class="nume-caracteristica">Culoare: </a> <span class="val-culoare"><?php echo $produs["culoare"]; ?></span></li>
                                         <li><a class="nume-caracteristica">Materiale: </a> <span class="val-materiale"><?php echo str_replace(array('[', '"', ']'), array("", "", ""), $produs["materiale"]); ?></span></li>
-                                        <li><a class="nume-caracteristica">Resigilat: </a> <span class="val-resigilat"><?php echo $produs["resigilat"]; ?></span></li>
+                                        <li><a class="nume-caracteristica">Resigilat: </a> <span class="val-resigilat"><?php echo $produs["resigilat"] ? "DA" : "NU"; ?></span></li>
                                         <li><a class="nume-caracteristica">Data adaugare: </a> 
                                             <span class="val-data-adaugare">
                                                 <?php 

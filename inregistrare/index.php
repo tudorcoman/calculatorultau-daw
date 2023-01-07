@@ -53,8 +53,8 @@ ini_set('display_errors', '1');
                             $eroare .= "Username necompletat. ";
                         if(!preg_match("/^[A-Za-z0-9]+$/", $username))
                             $eroare .= "Username nu contine caracterele cerute. ";
-                        if(!preg_match("/^[A-Za-z0-9_\\-\\.]+@[A-Za-z0-9]+\\.[a-zA-Z]{2,3}$/", $email))
-                            $eroare .= "Emailul nu este valid. "; // TBD: more on validation
+                        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+                            $eroare .= "Emailul nu este valid. ";
 
                         if(preg_match("/^.*[%\\^&\\*].*$/", $parola) || preg_match("/^.*[%\\^&\\*].*$/", $rparola))
                             $eroare .= "Parola contine caractere interzise. ";

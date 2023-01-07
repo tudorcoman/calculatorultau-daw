@@ -74,4 +74,5 @@ window.addEventListener('load', function() {
 
 function curataCos() {
 	localStorage.setItem("cos_virtual", "");
+	window.location.reload();
 }
