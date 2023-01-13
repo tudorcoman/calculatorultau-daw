@@ -4,3 +4,4 @@ CREATE TABLE IF NOT EXISTS depozite (
 );
 
 INSERT INTO depozite (adresa) VALUES ('Strada Academiei nr. 14');
+INSERT INTO depzoite (adresa) VALUES ('Sos de Centura nr. 48');

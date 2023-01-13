@@ -25,14 +25,14 @@
         $active_sheet = $file->getActiveSheet();
 
         for($i = 0; $i < count($columns); $i ++) {
-            $active_sheet->setCellValueByColumnAndRow($i, 1, $columns[$i]);
+            $active_sheet->setCellValueByColumnAndRow($i+1, 1, $columns[$i]);
         }
 
         $row = 2;
         foreach($data as $data_row) {
             $col = 0;
             foreach($data_row as $data_col) {
-                $active_sheet->setCellValueByColumnAndRow($col, $row, $data_col);
+                $active_sheet->setCellValueByColumnAndRow($col+1, $row, $data_col);
                 $col ++;
             }
             $row ++;
