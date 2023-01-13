@@ -24,7 +24,7 @@
                 <input type="text" id="email" name="email" placeholder="Your email" required>
 
                 <label for="message">Message</label>
-                <textarea id="message" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
+                <textarea id="message" name="message" placeholder="Write something.." style="height:200px" required></textarea>
 
                 <div class="g-recaptcha" data-sitekey="6Le5rLUjAAAAAMPxAFTCBK4n7n4TArMi8aIKyNiV"></div> <br>
                 <input type="submit" name="submit" value="Submit">
